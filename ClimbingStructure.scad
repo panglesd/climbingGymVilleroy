@@ -19,7 +19,7 @@ $epaisseur_panneau = 1.8;
 $longueur_panneau = 115+$largeur*2;
 $largeur_panneau = 100;
 
-$show_panneau = true;
+$show_panneau = false;
 
 use <GuestRoomForClimbing.scad>
 
@@ -30,30 +30,30 @@ use <GuestRoomForClimbing.scad>
 // la structure, côté voisin
 /**************************************************/
 
-for(i = [0:4]) {
-  translate([(136-120-$largeur)/2+i*30, 260-20-$longueur,$largeur]) cube([$largeur, $longueur, 240]);  // barre verticale
+for(i = [0:3]) {
+  translate([(136-120-$largeur)/2+i*(120/3), 260-20-$longueur,$largeur]) cube([$largeur, $longueur, 240]);  // barre verticale
   echo(str("poutre de dimension", [$longueur, $largeur, 240]));
  }
-translate([(136-120-$largeur)/2,260-20-$longueur,0]) cube([4*30+$largeur, $longueur, $largeur]);  // barre horizontale basse
-echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
-translate([(136-120-$largeur)/2,260-20-$longueur,240+$largeur]) cube([4*30+$largeur, $longueur, $largeur]);  // barre horizontale haute
-echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
+translate([(136-120-$largeur)/2,260-20-$longueur,0]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale basse
+echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
+translate([(136-120-$largeur)/2,260-20-$longueur,240+$largeur]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale haute
+echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
 
 // Tasseaux
-for(i = [0:3]) {
-  if(i%2==0) { // 2 tasseaux par interval
-    translate([$largeur+(136-120-$largeur)/2+i*30, 260-20-$longueur,240/6*2+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
-    translate([$largeur+(136-120-$largeur)/2+i*30, 260-20-$longueur,240/6*4+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
+for(i = [0:2]) {
+  if(i%2!=0) { // 2 tasseaux par interval
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 260-20-$longueur,240/6*2+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 260-20-$longueur,240/6*4+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
   }
   else { // 3 tasseaux par interval
-    translate([$largeur+(136-120-$largeur)/2+i*30, 260-20-$longueur,240/6*1+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
-    translate([$largeur+(136-120-$largeur)/2+i*30, 260-20-$longueur,240/6*3+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
-    translate([$largeur+(136-120-$largeur)/2+i*30, 260-20-$longueur,240/6*5+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 260-20-$longueur,240/6*1+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 260-20-$longueur,240/6*3+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 260-20-$longueur,240/6*5+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
   }
  }
 
@@ -61,31 +61,31 @@ for(i = [0:3]) {
 // la structure côté salon
 /**************************************************/
 
-for(i = [0:4]) {
-  translate([(136-120-$largeur)/2+i*30, 0,$largeur]) cube([$largeur, $longueur, 240]);  // barre verticale
+for(i = [0:3]) {
+  translate([(136-120-$largeur)/2+i*(120/3), 0,$largeur]) cube([$largeur, $longueur, 240]);  // barre verticale
   echo(str("poutre de dimension", [$longueur, $largeur, 240]));
  }
 
-translate([(136-120-$largeur)/2,0,0]) cube([4*30+$largeur, $longueur, $largeur]);  // barre horizontale basse
-echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
-translate([(136-120-$largeur)/2,0,240+$largeur]) cube([4*30+$largeur, $longueur, $largeur]);  // barre horizontale haute
-echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
+translate([(136-120-$largeur)/2,0,0]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale basse
+echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
+translate([(136-120-$largeur)/2,0,240+$largeur]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale haute
+echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
 
 // Tasseaux
-for(i = [0:3]) {
-  if(i%2==0) { // 2 tasseaux par interval
-    translate([$largeur+(136-120-$largeur)/2+i*30, 0,240/6*2+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
-    translate([$largeur+(136-120-$largeur)/2+i*30, 0,240/6*4+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
+for(i = [0:2]) {
+  if(i%2!=0) { // 2 tasseaux par interval
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 0,240/6*2+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 0,240/6*4+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
   }
   else { // 3 tasseaux par interval
-    translate([$largeur+(136-120-$largeur)/2+i*30, 0,240/6*1+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
-    translate([$largeur+(136-120-$largeur)/2+i*30, 0,240/6*3+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
-    translate([$largeur+(136-120-$largeur)/2+i*30, 0,240/6*5+$largeur])  cube([30-$largeur,$longueur,$largeur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 0,240/6*1+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 0,240/6*3+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 0,240/6*5+$largeur])  cube([(120/3)-$largeur,$longueur,$largeur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
   }
  }
 
@@ -95,42 +95,42 @@ for(i = [0:3]) {
 /**************************************************/
 
 // barre de soutien plate
-translate([(136-120-$largeur)/2,260-20-$longueur,240+$rallonge+$largeur]) cube([4*30+$largeur, $longueur, $largeur]); // côté voisin
-echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
-translate([(136-120-$largeur)/2,0,240+$rallonge+$largeur]) cube([4*30+$largeur, $longueur, $largeur]); // côté salon
-echo(str("poutre de dimension", [$longueur, $largeur, 4*30+$largeur]));
+translate([(136-120-$largeur)/2,260-20-$longueur,240+$rallonge+$largeur]) cube([120+$largeur, $longueur, $largeur]); // côté voisin
+echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
+translate([(136-120-$largeur)/2,0,240+$rallonge+$largeur]) cube([120+$largeur, $longueur, $largeur]); // côté salon
+echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
 
 // barres verticales pour ajouter $rallonge cm de hauteur
-for(i = [0:4]) {
-  translate([(136-120-$largeur)/2+i*30, 0,240+$largeur+$largeur]) cube([$largeur, $longueur, $rallonge-$largeur]); // côté salon
+for(i = [0:3]) {
+  translate([(136-120-$largeur)/2+i*(120/3), 0,240+$largeur+$largeur]) cube([$largeur, $longueur, $rallonge-$largeur]); // côté salon
   echo(str("poutre de dimension", [$longueur, $largeur, $rallonge-$largeur]));
  }
-for(i = [0:4]) {
-  translate([(136-120-$largeur)/2+i*30, 260-20-$longueur,240+$largeur+$largeur]) cube([$largeur, $longueur, $rallonge-$largeur]);  // côté voisin
+for(i = [0:3]) {
+  translate([(136-120-$largeur)/2+i*(120/3), 260-20-$longueur,240+$largeur+$largeur]) cube([$largeur, $longueur, $rallonge-$largeur]);  // côté voisin
   echo(str("poutre de dimension", [$longueur, $largeur, $rallonge-$largeur]));
  }
 
 // poutres traversantes
-for(i = [0:4]) {
-  translate([(136-120-$largeur)/2+i*30, 0, 240+$largeur+$largeur+$rallonge]) cube([$largeur,240,$longueur]);  // barre longue
+for(i = [0:3]) {
+  translate([(136-120-$largeur)/2+i*(120/3), 0, 240+$largeur+$largeur+$rallonge]) cube([$largeur,240,$longueur]);  // barre longue
   echo(str("poutre de dimension", [$longueur, $largeur, 240]));
  }
 
 // Tasseaux
-for(i = [0:3]) {
-  if(i%2==0) { // 2 tasseaux par interval
-    translate([$largeur+(136-120-$largeur)/2+i*30, 240/6*2+$largeur,240+$largeur+$largeur+$rallonge])  cube([30-$largeur,$largeur, $longueur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
-    translate([$largeur+(136-120-$largeur)/2+i*30, 240/6*4+$largeur,240+$largeur+$largeur+$rallonge])  cube([30-$largeur,$largeur, $longueur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
+for(i = [0:2]) {
+  if(i%2!=0) { // 2 tasseaux par interval
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 240/6*2+$largeur,240+$largeur+$largeur+$rallonge])  cube([(120/3)-$largeur,$largeur, $longueur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3), 240/6*4+$largeur,240+$largeur+$largeur+$rallonge])  cube([(120/3)-$largeur,$largeur, $longueur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
   }
   else { // 3 tasseaux par interval
-    translate([$largeur+(136-120-$largeur)/2+i*30,240/6*1+$largeur,240+$largeur+$largeur+$rallonge])  cube([30-$largeur,$largeur, $longueur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
-    translate([$largeur+(136-120-$largeur)/2+i*30,240/6*3+$largeur,240+$largeur+$largeur+$rallonge])  cube([30-$largeur,$largeur, $longueur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
-    translate([$largeur+(136-120-$largeur)/2+i*30,240/6*5+$largeur,240+$largeur+$largeur+$rallonge])  cube([30-$largeur,$largeur, $longueur]);
-    echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3),240/6*1+$largeur,240+$largeur+$largeur+$rallonge])  cube([(120/3)-$largeur,$largeur, $longueur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3),240/6*3+$largeur,240+$largeur+$largeur+$rallonge])  cube([(120/3)-$largeur,$largeur, $longueur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
+    translate([$largeur+(136-120-$largeur)/2+i*(120/3),240/6*5+$largeur,240+$largeur+$largeur+$rallonge])  cube([(120/3)-$largeur,$largeur, $longueur]);
+    echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
   }
  }
 
@@ -138,27 +138,27 @@ for(i = [0:3]) {
 // Le plan incliné
 /**************************************************/
 
-translate([0,235,60]) {
+translate([-$largeur*2,235,60]) {
   rotate(a=[20,0,0])  {
     // translate([0,0,0]){
-    for(i = [0:4]) {
-      translate([$largeur+(136-120-$largeur)/2+i*30,0,0]) cube([$largeur, $longueur, 240]);
+    for(i = [0:3]) {
+      translate([$largeur+(136-120-$largeur)/2+i*(120/3),0,0]) cube([$largeur, $longueur, 240]);
       echo(str("poutre de dimension", [$longueur, $largeur, 240]));
     }
-    for(i = [0:3]) {
-      if(i%2==0) { // 2 tasseaux par interval
-	translate([$largeur+$largeur+(136-120-$largeur)/2+i*30, 0, 240/6*2+$largeur])  cube([30-$largeur,$longueur, $largeur]);
-	echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
-	translate([$largeur+$largeur+(136-120-$largeur)/2+i*30, 0, 240/6*4+$largeur])  cube([30-$largeur,$longueur, $largeur]);
-	echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
+    for(i = [0:2]) {
+      if(i%2!=0) { // 2 tasseaux par interval
+	translate([$largeur+$largeur+(136-120-$largeur)/2+i*(120/3), 0, 240/6*2+$largeur])  cube([(120/3)-$largeur,$longueur, $largeur]);
+	echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
+	translate([$largeur+$largeur+(136-120-$largeur)/2+i*(120/3), 0, 240/6*4+$largeur])  cube([(120/3)-$largeur,$longueur, $largeur]);
+	echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
       }
       else { // 3 tasseaux par interval
-	translate([$largeur+$largeur+(136-120-$largeur)/2+i*30, 0, 240/6*1+$largeur])  cube([30-$largeur,$longueur, $largeur]);
-	echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
-	translate([$largeur+$largeur+(136-120-$largeur)/2+i*30, 0, 240/6*3+$largeur])  cube([30-$largeur,$longueur, $largeur]);
-	echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
-	translate([$largeur+$largeur+(136-120-$largeur)/2+i*30, 0, 240/6*5+$largeur])  cube([30-$largeur,$longueur, $largeur]);
-	echo(str("poutre de dimension", [$longueur, $largeur, 30-$largeur]));
+	translate([$largeur+$largeur+(136-120-$largeur)/2+i*(120/3), 0, 240/6*1+$largeur])  cube([(120/3)-$largeur,$longueur, $largeur]);
+	echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
+	translate([$largeur+$largeur+(136-120-$largeur)/2+i*(120/3), 0, 240/6*3+$largeur])  cube([(120/3)-$largeur,$longueur, $largeur]);
+	echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
+	translate([$largeur+$largeur+(136-120-$largeur)/2+i*(120/3), 0, 240/6*5+$largeur])  cube([(120/3)-$largeur,$longueur, $largeur]);
+	echo(str("poutre de dimension", [$longueur, $largeur, (120/3)-$largeur]));
       }
     }
     // panneaux du plan incliné

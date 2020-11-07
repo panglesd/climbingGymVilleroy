@@ -31,12 +31,12 @@ use <GuestRoomForClimbing.scad>
 /**************************************************/
 
 for(i = [0:3]) {
-  translate([(136-120-$largeur)/2+i*(120/3), 260-20-$longueur,$largeur]) cube([$largeur, $longueur, 240+$rallonge+$largeur]);  // barre verticale
-  echo(str("poutre de dimension", [$longueur, $largeur, 240+$rallonge+$largeur]));
+  translate([(136-120-$largeur)/2+i*(120/3), 260-20-$longueur,$largeur]) cube([$largeur, $longueur, 240+$rallonge]);  // barre verticale
+  echo(str("poutre de dimension", [$longueur, $largeur, 240+$rallonge]));
  }
 translate([(136-120-$largeur)/2,260-20-$longueur,0]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale basse
 echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
-translate([(136-120-$largeur)/2,260-20-$longueur,240+$rallonge+$largeur+$largeur]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale haute
+translate([(136-120-$largeur)/2,260-20-$longueur,240+$rallonge+$largeur]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale haute
 echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
 
 // Tasseaux
@@ -62,13 +62,13 @@ for(i = [0:2]) {
 /**************************************************/
 
 for(i = [0:3]) {
-  translate([(136-120-$largeur)/2+i*(120/3), 0,$largeur]) cube([$largeur, $longueur, 240+$rallonge+$largeur]);  // barre verticale
-  echo(str("poutre de dimension", [$longueur, $largeur, 240+$rallonge+$largeur]));
+  translate([(136-120-$largeur)/2+i*(120/3), 0,$largeur]) cube([$largeur, $longueur, 240+$rallonge]);  // barre verticale
+  echo(str("poutre de dimension", [$longueur, $largeur, 240+$rallonge]));
  }
 
 translate([(136-120-$largeur)/2,0,0]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale basse
 echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
-translate([(136-120-$largeur)/2,0,240+$largeur+$rallonge+$largeur]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale haute
+translate([(136-120-$largeur)/2,0,240+$largeur+$rallonge]) cube([120+$largeur, $longueur, $largeur]);  // barre horizontale haute
 echo(str("poutre de dimension", [$longueur, $largeur, 120+$largeur]));
 
 // Tasseaux

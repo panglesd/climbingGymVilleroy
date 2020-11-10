@@ -30,7 +30,7 @@ $show_panneau = true;
 
 use <GuestRoomForClimbing.scad>
 
-* guestRoomForClimbing();
+% guestRoomForClimbing();
 
 
 /**************************************************/
@@ -187,7 +187,7 @@ translate([-$largeur*2,235,60]) {
 	  {
 	cube([67.5,$epaisseur_panneau, 230]);
 	translate([67.5-15,-1,-1]) cube([20,3,30]);
-	translate([67.5-15,-1,210]) cube([20,3,30]);
+	translate([67.5-15,-1,210]) cube([10,3,30]);
 	  }
 	
       } 
@@ -195,7 +195,8 @@ translate([-$largeur*2,235,60]) {
 	difference () 
 	  {
 	cube([67.5,$epaisseur_panneau, 230]);
-	translate([-1,-2,-1]) cube([30,5,30]);
+	translate([19,-2,-1]) cube([10,5,30]);
+	translate([-1,-2,-1]) cube([11,5,63]);
 	translate([19,-2,210]) cube([10,5,30]);
 	  }
 	
